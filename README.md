@@ -1,4 +1,4 @@
-# AS2_Final_Frontend
+# AS2_Final_Backend
 > Sistema donde se administraran las consultas, recetas o medicamentos que se le dara al paciente con el diagnóstico del médico.
 
 
