@@ -1,7 +1,7 @@
-package gt.edu.umg.as2p2.controller;
+package gt.edu.umg.as2final.controller;
 
-import gt.edu.umg.as2p2.model.PatientEntity;
-import gt.edu.umg.as2p2.dao.PatientRepository;
+import gt.edu.umg.as2final.model.PatientEntity;
+import gt.edu.umg.as2final.dao.PatientRepository;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

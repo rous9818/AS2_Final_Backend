@@ -1,6 +1,6 @@
-package gt.edu.umg.as2p2.dao;
+package gt.edu.umg.as2final.dao;
 
-import gt.edu.umg.as2p2.model.DoctorEntity;
+import gt.edu.umg.as2final.model.DoctorEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

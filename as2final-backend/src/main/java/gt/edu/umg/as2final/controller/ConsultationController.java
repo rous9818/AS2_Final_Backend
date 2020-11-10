@@ -1,7 +1,7 @@
-package gt.edu.umg.as2p2.controller;
+package gt.edu.umg.as2final.controller;
 
-import gt.edu.umg.as2p2.dao.ConsultationRepository;
-import gt.edu.umg.as2p2.model.ConsultationEntity;
+import gt.edu.umg.as2final.dao.ConsultationRepository;
+import gt.edu.umg.as2final.model.ConsultationEntity;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -90,13 +90,10 @@ public class ConsultationController {
                     .findById(idConsultation)
                     .orElseThrow(() -> new ResourceNotFoundException("No se encontró la consulta con id : " + idConsultation));
         
-        consultation.setConsultationDate(consultationDetails.getConsultationDate());
+        consultation.setDateRecorded(consultationDetails.getDateRecorded());
         consultation.setDiagnosis(consultationDetails.getDiagnosis());
         consultation.setTreatment(consultationDetails.getTreatment());
-        consultation.setObservations(consultationDetails.getObservations());
         consultation.setComplaints(consultationDetails.getComplaints());
-        consultation.setOtherDetails(consultationDetails.getOtherDetails());
-        consultation.setNextVisit(consultationDetails.getNextVisit());
         
         final ConsultationEntity updatedConsultation = consultationRepository.save(consultation);
         return ResponseEntity.ok(updatedConsultation);

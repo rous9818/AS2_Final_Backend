@@ -1,4 +1,4 @@
-package gt.edu.umg.as2p2;
+package gt.edu.umg.as2final;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

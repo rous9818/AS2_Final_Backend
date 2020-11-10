@@ -1,7 +1,7 @@
-package gt.edu.umg.as2p2.controller;
+package gt.edu.umg.as2final.controller;
 
-import gt.edu.umg.as2p2.dao.DoctorRepository;
-import gt.edu.umg.as2p2.model.DoctorEntity;
+import gt.edu.umg.as2final.dao.DoctorRepository;
+import gt.edu.umg.as2final.model.DoctorEntity;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -100,8 +100,6 @@ public class DoctorController {
         doctor.setBirthdate(doctorDetails.getBirthdate());
         doctor.setCollegiateNumber(doctorDetails.getCollegiateNumber());
         doctor.setIsActive(doctorDetails.getIsActive());
-        doctor.setPhone1(doctorDetails.getPhone1());
-        doctor.setPhone2(doctorDetails.getPhone2());
         
         final DoctorEntity updatedDoctor = doctorRepository.save(doctor);
         return ResponseEntity.ok(updatedDoctor);
