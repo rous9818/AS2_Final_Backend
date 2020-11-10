@@ -29,21 +29,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "tb_patient")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "TbPatient.findAll", query = "SELECT t FROM TbPatient t"),
-    @NamedQuery(name = "TbPatient.findById", query = "SELECT t FROM TbPatient t WHERE t.id = :id"),
-    @NamedQuery(name = "TbPatient.findByFirstName", query = "SELECT t FROM TbPatient t WHERE t.firstName = :firstName"),
-    @NamedQuery(name = "TbPatient.findByMiddleName", query = "SELECT t FROM TbPatient t WHERE t.middleName = :middleName"),
-    @NamedQuery(name = "TbPatient.findByLastName", query = "SELECT t FROM TbPatient t WHERE t.lastName = :lastName"),
-    @NamedQuery(name = "TbPatient.findByMaidenName", query = "SELECT t FROM TbPatient t WHERE t.maidenName = :maidenName"),
-    @NamedQuery(name = "TbPatient.findByAddress1", query = "SELECT t FROM TbPatient t WHERE t.address1 = :address1"),
-    @NamedQuery(name = "TbPatient.findByAddress2", query = "SELECT t FROM TbPatient t WHERE t.address2 = :address2"),
-    @NamedQuery(name = "TbPatient.findByPhone1", query = "SELECT t FROM TbPatient t WHERE t.phone1 = :phone1"),
-    @NamedQuery(name = "TbPatient.findByPhone2", query = "SELECT t FROM TbPatient t WHERE t.phone2 = :phone2"),
-    @NamedQuery(name = "TbPatient.findByGender", query = "SELECT t FROM TbPatient t WHERE t.gender = :gender"),
-    @NamedQuery(name = "TbPatient.findByBirthdate", query = "SELECT t FROM TbPatient t WHERE t.birthdate = :birthdate"),
-    @NamedQuery(name = "TbPatient.findByPatientState", query = "SELECT t FROM TbPatient t WHERE t.patientState = :patientState")})
 public class PatientEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -51,7 +36,7 @@ public class PatientEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
     @Size(max = 50)
     @Column(name = "first_name")
     private String firstName;
@@ -83,21 +68,21 @@ public class PatientEntity implements Serializable {
     private Date birthdate;
     @Column(name = "patient_state")
     private Boolean patientState;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "tbPatient")
-    private ConsultationEntity tbConsultation;
+    //@OneToOne(cascade = CascadeType.ALL, mappedBy = "tbPatient")
+    //private ConsultationEntity tbConsultation;
 
     public PatientEntity() {
     }
 
-    public PatientEntity(Integer id) {
+    public PatientEntity(Long id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -189,14 +174,6 @@ public class PatientEntity implements Serializable {
         this.patientState = patientState;
     }
 
-    public ConsultationEntity getTbConsultation() {
-        return tbConsultation;
-    }
-
-    public void setTbConsultation(ConsultationEntity tbConsultation) {
-        this.tbConsultation = tbConsultation;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -219,7 +196,7 @@ public class PatientEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "gt.edu.umg.as2final.model.TbPatient[ id=" + id + " ]";
+        return "gt.edu.umg.as2final.model.PatientEntity[ id=" + id + " ]";
     }
     
 }
