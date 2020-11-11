@@ -26,13 +26,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "tb_prescription")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "TbPrescription.findAll", query = "SELECT t FROM TbPrescription t"),
-    @NamedQuery(name = "TbPrescription.findById", query = "SELECT t FROM TbPrescription t WHERE t.id = :id"),
-    @NamedQuery(name = "TbPrescription.findByConsultationId", query = "SELECT t FROM TbPrescription t WHERE t.consultationId = :consultationId"),
-    @NamedQuery(name = "TbPrescription.findByMedicineId", query = "SELECT t FROM TbPrescription t WHERE t.medicineId = :medicineId"),
-    @NamedQuery(name = "TbPrescription.findByPrescriptionDetails", query = "SELECT t FROM TbPrescription t WHERE t.prescriptionDetails = :prescriptionDetails")})
 public class PrescriptionEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,9 +33,9 @@ public class PrescriptionEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
     @Column(name = "consultation_id")
-    private Integer consultationId;
+    private Long consultationId;
     @Column(name = "medicine_id")
     private Integer medicineId;
     @Size(max = 150)
@@ -58,23 +51,23 @@ public class PrescriptionEntity implements Serializable {
     public PrescriptionEntity() {
     }
 
-    public PrescriptionEntity(Integer id) {
+    public PrescriptionEntity(Long id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getConsultationId() {
+    public Long getConsultationId() {
         return consultationId;
     }
 
-    public void setConsultationId(Integer consultationId) {
+    public void setConsultationId(Long consultationId) {
         this.consultationId = consultationId;
     }
 
@@ -132,7 +125,7 @@ public class PrescriptionEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "gt.edu.umg.as2final.model.TbPrescription[ id=" + id + " ]";
+        return "gt.edu.umg.as2final.model.PrescriptionEntity[ id=" + id + " ]";
     }
     
 }

@@ -26,12 +26,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "tb_medicine")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "TbMedicine.findAll", query = "SELECT t FROM TbMedicine t"),
-    @NamedQuery(name = "TbMedicine.findById", query = "SELECT t FROM TbMedicine t WHERE t.id = :id"),
-    @NamedQuery(name = "TbMedicine.findByMedicineName", query = "SELECT t FROM TbMedicine t WHERE t.medicineName = :medicineName"),
-    @NamedQuery(name = "TbMedicine.findByDescription", query = "SELECT t FROM TbMedicine t WHERE t.description = :description")})
 public class MedicineEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;

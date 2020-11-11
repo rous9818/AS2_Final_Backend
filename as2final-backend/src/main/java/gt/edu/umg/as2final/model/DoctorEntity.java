@@ -8,20 +8,15 @@ package gt.edu.umg.as2final.model;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -29,20 +24,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "tb_doctor")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "TbDoctor.findAll", query = "SELECT t FROM TbDoctor t"),
-    @NamedQuery(name = "TbDoctor.findById", query = "SELECT t FROM TbDoctor t WHERE t.id = :id"),
-    @NamedQuery(name = "TbDoctor.findByFirstName", query = "SELECT t FROM TbDoctor t WHERE t.firstName = :firstName"),
-    @NamedQuery(name = "TbDoctor.findByMiddleName", query = "SELECT t FROM TbDoctor t WHERE t.middleName = :middleName"),
-    @NamedQuery(name = "TbDoctor.findByLastName", query = "SELECT t FROM TbDoctor t WHERE t.lastName = :lastName"),
-    @NamedQuery(name = "TbDoctor.findByMaidenName", query = "SELECT t FROM TbDoctor t WHERE t.maidenName = :maidenName"),
-    @NamedQuery(name = "TbDoctor.findByAddress1", query = "SELECT t FROM TbDoctor t WHERE t.address1 = :address1"),
-    @NamedQuery(name = "TbDoctor.findByAddress2", query = "SELECT t FROM TbDoctor t WHERE t.address2 = :address2"),
-    @NamedQuery(name = "TbDoctor.findByGender", query = "SELECT t FROM TbDoctor t WHERE t.gender = :gender"),
-    @NamedQuery(name = "TbDoctor.findByBirthdate", query = "SELECT t FROM TbDoctor t WHERE t.birthdate = :birthdate"),
-    @NamedQuery(name = "TbDoctor.findByCollegiateNumber", query = "SELECT t FROM TbDoctor t WHERE t.collegiateNumber = :collegiateNumber"),
-    @NamedQuery(name = "TbDoctor.findByIsActive", query = "SELECT t FROM TbDoctor t WHERE t.isActive = :isActive")})
 public class DoctorEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,7 +31,7 @@ public class DoctorEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
     @Size(max = 50)
     @Column(name = "first_name")
     private String firstName;
@@ -79,23 +60,19 @@ public class DoctorEntity implements Serializable {
     private String collegiateNumber;
     @Column(name = "is_active")
     private Boolean isActive;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "tbDoctor")
-    private DoctorSpecializationEntity tbDoctorspecialization;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "tbDoctor")
-    private ConsultationEntity tbConsultation;
 
     public DoctorEntity() {
     }
 
-    public DoctorEntity(Integer id) {
+    public DoctorEntity(Long id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -179,22 +156,6 @@ public class DoctorEntity implements Serializable {
         this.isActive = isActive;
     }
 
-    public DoctorSpecializationEntity getTbDoctorspecialization() {
-        return tbDoctorspecialization;
-    }
-
-    public void setTbDoctorspecialization(DoctorSpecializationEntity tbDoctorspecialization) {
-        this.tbDoctorspecialization = tbDoctorspecialization;
-    }
-
-    public ConsultationEntity getTbConsultation() {
-        return tbConsultation;
-    }
-
-    public void setTbConsultation(ConsultationEntity tbConsultation) {
-        this.tbConsultation = tbConsultation;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -217,7 +178,7 @@ public class DoctorEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "gt.edu.umg.as2final.model.TbDoctor[ id=" + id + " ]";
+        return "gt.edu.umg.as2final.model.DoctorEntity[ id=" + id + " ]";
     }
     
 }
