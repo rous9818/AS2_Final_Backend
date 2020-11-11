@@ -15,14 +15,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -30,16 +28,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "tb_consultation")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "TbConsultation.findAll", query = "SELECT t FROM TbConsultation t"),
-    @NamedQuery(name = "TbConsultation.findById", query = "SELECT t FROM TbConsultation t WHERE t.id = :id"),
-    @NamedQuery(name = "TbConsultation.findByPatientId", query = "SELECT t FROM TbConsultation t WHERE t.patientId = :patientId"),
-    @NamedQuery(name = "TbConsultation.findByDoctorId", query = "SELECT t FROM TbConsultation t WHERE t.doctorId = :doctorId"),
-    @NamedQuery(name = "TbConsultation.findByComplaints", query = "SELECT t FROM TbConsultation t WHERE t.complaints = :complaints"),
-    @NamedQuery(name = "TbConsultation.findByDiagnosis", query = "SELECT t FROM TbConsultation t WHERE t.diagnosis = :diagnosis"),
-    @NamedQuery(name = "TbConsultation.findByTreatment", query = "SELECT t FROM TbConsultation t WHERE t.treatment = :treatment"),
-    @NamedQuery(name = "TbConsultation.findByDateRecorded", query = "SELECT t FROM TbConsultation t WHERE t.dateRecorded = :dateRecorded")})
 public class ConsultationEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,7 +35,7 @@ public class ConsultationEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
     @Column(name = "patient_id")
     private Integer patientId;
     @Column(name = "doctor_id")
@@ -67,24 +55,24 @@ public class ConsultationEntity implements Serializable {
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "tbConsultation")
     private PrescriptionEntity tbPrescription;
     @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false)
     private DoctorEntity tbDoctor;
     @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false)
     private PatientEntity tbPatient;
 
     public ConsultationEntity() {
     }
 
-    public ConsultationEntity(Integer id) {
+    public ConsultationEntity(Long id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
