@@ -1,47 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gt.edu.umg.as2final.model;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author AK272DT
+ * SpecializationEntity:
+ * Modelo para representar el catálogo de especializaciones.
  */
 @Entity
 @Table(name = "tb_specialization")
 public class SpecializationEntity implements Serializable {
 
+    // Id de la especialización
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    
+    // Nombre de la especialización
     @Size(max = 50)
     @Column(name = "specialization_name")
     private String specializationName;
+    
+    // Descripción de la especialización
     @Size(max = 50)
     @Column(name = "description")
     private String description;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "tbSpecialization")
-    private DoctorSpecializationEntity tbDoctorspecialization;
+    
+    /*@OneToOne(cascade = CascadeType.ALL, mappedBy = "tbSpecialization")
+    private DoctorSpecializationEntity tbDoctorspecialization;*/
 
     public SpecializationEntity() {
     }
@@ -74,13 +72,13 @@ public class SpecializationEntity implements Serializable {
         this.description = description;
     }
 
-    public DoctorSpecializationEntity getTbDoctorspecialization() {
+    /* public DoctorSpecializationEntity getTbDoctorspecialization() {
         return tbDoctorspecialization;
     }
 
     public void setTbDoctorspecialization(DoctorSpecializationEntity tbDoctorspecialization) {
         this.tbDoctorspecialization = tbDoctorspecialization;
-    }
+    } */
 
     @Override
     public int hashCode() {
@@ -104,7 +102,7 @@ public class SpecializationEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "gt.edu.umg.as2final.model.TbSpecialization[ id=" + id + " ]";
+        return "gt.edu.umg.as2final.model.SpecializationEntity[ id=" + id + " ]";
     }
     
 }

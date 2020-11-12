@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gt.edu.umg.as2final.model;
 
 import java.io.Serializable;
@@ -13,11 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -27,19 +19,26 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "tb_doctorspecialization")
 public class DoctorSpecializationEntity implements Serializable {
 
+    // Id doctor-especialización
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
+    
+    // Id del doctor
     @Column(name = "doctor_id")
     private Integer doctorId;
+    
+    // Id del paciente
     @Column(name = "specialization_id")
     private Integer specializationId;
+    
     @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private DoctorEntity tbDoctor;
+    
     @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private SpecializationEntity tbSpecialization;
@@ -47,15 +46,15 @@ public class DoctorSpecializationEntity implements Serializable {
     public DoctorSpecializationEntity() {
     }
 
-    public DoctorSpecializationEntity(Integer id) {
+    public DoctorSpecializationEntity(Long id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -113,7 +112,7 @@ public class DoctorSpecializationEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "gt.edu.umg.as2final.model.TbDoctorspecialization[ id=" + id + " ]";
+        return "gt.edu.umg.as2final.model.DoctorSpecializationEntity[ id=" + id + " ]";
     }
     
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gt.edu.umg.as2final.model;
 
 import java.io.Serializable;
@@ -13,33 +8,39 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author AK272DT
+ * MedicineForDiseaseEntity:
+ * Modelo para representar los medicamentos asociados a una enfermedad(es).
  */
 @Entity
 @Table(name = "tb_medicinefordisease")
 public class MedicineForDiseaseEntity implements Serializable {
 
+    // Id medicamento-enfermedad
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
+    
+    // Id de la enfermedad
     @Column(name = "disease_id")
     private Integer diseaseId;
+    
+    // Id del medicamento
     @Column(name = "medicine_id")
     private Integer medicineId;
+    
     @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private DiseaseEntity tbDisease;
+    
     @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private MedicineEntity tbMedicine;
@@ -47,15 +48,15 @@ public class MedicineForDiseaseEntity implements Serializable {
     public MedicineForDiseaseEntity() {
     }
 
-    public MedicineForDiseaseEntity(Integer id) {
+    public MedicineForDiseaseEntity(Long id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -113,7 +114,7 @@ public class MedicineForDiseaseEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "gt.edu.umg.as2final.model.TbMedicinefordisease[ id=" + id + " ]";
+        return "gt.edu.umg.as2final.model.MedicineForDiseaseEntity[ id=" + id + " ]";
     }
     
 }

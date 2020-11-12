@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gt.edu.umg.as2final.model;
 
 import java.io.Serializable;
@@ -13,37 +8,45 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author AK272DT
+ * PrescriptionEntity:
+ * Modelo para representar la prescripción médica.
  */
 @Entity
 @Table(name = "tb_prescription")
 public class PrescriptionEntity implements Serializable {
 
+    // Id de la prescripción
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
+    
+    // Id de la consulta
     @Column(name = "consultation_id")
     private Long consultationId;
+    
+    // Id del medicamento
     @Column(name = "medicine_id")
     private Integer medicineId;
+    
+    // Detalle de la prescripción
     @Size(max = 150)
     @Column(name = "prescription_details")
     private String prescriptionDetails;
+    
     @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private ConsultationEntity tbConsultation;
+    
     @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private MedicineEntity tbMedicine;
