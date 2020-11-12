@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gt.edu.umg.as2final.model;
 
 import java.io.Serializable;
@@ -25,38 +20,56 @@ import javax.validation.constraints.Size;
 /**
  *
  * @author AK272DT
+ * ConsultationEntity:
+ * Modelo para representar las consultas médicas.
  */
 @Entity
 @Table(name = "tb_consultation")
 public class ConsultationEntity implements Serializable {
 
+    // Id de la consulta
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
+    
+    // Id del paciente
     @Column(name = "patient_id")
     private Integer patientId;
+    
+    // Id del doctor
     @Column(name = "doctor_id")
     private Integer doctorId;
+    
+    // Reclamos
     @Size(max = 100)
     @Column(name = "complaints")
     private String complaints;
+    
+    // Diagnóstico
     @Size(max = 100)
     @Column(name = "diagnosis")
     private String diagnosis;
+    
+    // Tratamiento
     @Size(max = 100)
     @Column(name = "treatment")
     private String treatment;
+    
+    // Fecha de consulta
     @Column(name = "date_recorded")
     @Temporal(TemporalType.DATE)
     private Date dateRecorded;
+    
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "tbConsultation")
     private PrescriptionEntity tbPrescription;
+    
     @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private DoctorEntity tbDoctor;
+    
     @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private PatientEntity tbPatient;
@@ -170,7 +183,7 @@ public class ConsultationEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "gt.edu.umg.as2final.model.TbConsultation[ id=" + id + " ]";
+        return "gt.edu.umg.as2final.model.ConsultationEntity[ id=" + id + " ]";
     }
     
 }

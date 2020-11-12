@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gt.edu.umg.as2final.model;
 
 import java.io.Serializable;
@@ -21,46 +16,71 @@ import javax.validation.constraints.Size;
 /**
  *
  * @author AK272DT
+ * PatientEntity: 
+ * Modelo para representar los pacientes.
  */
 @Entity
 @Table(name = "tb_patient")
 public class PatientEntity implements Serializable {
 
+    // Id del paciente
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
+    
+    // Primer nombre
     @Size(max = 50)
     @Column(name = "first_name")
     private String firstName;
+    
+    // Segundo nombre
     @Size(max = 50)
     @Column(name = "middle_name")
     private String middleName;
+    
+    // Primer apellido
     @Size(max = 50)
     @Column(name = "last_name")
     private String lastName;
+    
+    // Apellido materno
     @Size(max = 50)
     @Column(name = "maiden_name")
     private String maidenName;
+    
+    // Dirección principal
     @Size(max = 50)
     @Column(name = "address1")
     private String address1;
+    
+    // Dirección secundaria
     @Size(max = 50)
     @Column(name = "address2")
     private String address2;
+    
+    // Teléfono principal
     @Size(max = 50)
     @Column(name = "phone1")
     private String phone1;
+    
+    // Teléfono secundario
     @Size(max = 50)
     @Column(name = "phone2")
     private String phone2;
+    
+    // Género (M o F)
     @Column(name = "gender")
     private Character gender;
+    
+    // Fecha de nacimiento
     @Column(name = "birthdate")
     @Temporal(TemporalType.DATE)
     private Date birthdate;
+    
+    // Estado del paciente
     @Column(name = "patient_state")
     private Boolean patientState;
 

@@ -1,62 +1,61 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gt.edu.umg.as2final.model;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author AK272DT
+ * MedicineEntity:
+ * Modelo para representar el catálogo de medicamentos.
  */
 @Entity
 @Table(name = "tb_medicine")
 public class MedicineEntity implements Serializable {
 
+    // Id del medicamento
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
+    
+    // Nombre del medicamento
     @Size(max = 30)
     @Column(name = "medicine_name")
     private String medicineName;
+    
+    // Descripción del medicamento
     @Size(max = 100)
     @Column(name = "description")
     private String description;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "tbMedicine")
-    private PrescriptionEntity tbPrescription;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "tbMedicine")
-    private MedicineForDiseaseEntity tbMedicinefordisease;
+    
+    /*@OneToOne(cascade = CascadeType.ALL, mappedBy = "tbMedicine")
+    private PrescriptionEntity tbPrescription;*/
+    
+    /*@OneToOne(cascade = CascadeType.ALL, mappedBy = "tbMedicine")
+    private MedicineForDiseaseEntity tbMedicinefordisease;*/
 
     public MedicineEntity() {
     }
 
-    public MedicineEntity(Integer id) {
+    public MedicineEntity(Long id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -76,7 +75,7 @@ public class MedicineEntity implements Serializable {
         this.description = description;
     }
 
-    public PrescriptionEntity getTbPrescription() {
+    /*public PrescriptionEntity getTbPrescription() {
         return tbPrescription;
     }
 
@@ -90,7 +89,7 @@ public class MedicineEntity implements Serializable {
 
     public void setTbMedicinefordisease(MedicineForDiseaseEntity tbMedicinefordisease) {
         this.tbMedicinefordisease = tbMedicinefordisease;
-    }
+    }*/
 
     @Override
     public int hashCode() {
@@ -114,7 +113,7 @@ public class MedicineEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "gt.edu.umg.as2final.model.TbMedicine[ id=" + id + " ]";
+        return "gt.edu.umg.as2final.model.MedicineEntity[ id=" + id + " ]";
     }
     
 }

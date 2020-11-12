@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gt.edu.umg.as2final.model;
 
 import java.io.Serializable;
@@ -21,43 +16,66 @@ import javax.validation.constraints.Size;
 /**
  *
  * @author AK272DT
+ * DoctorEntity:
+ * Modelo para representar a los doctores de la clínica
  */
 @Entity
 @Table(name = "tb_doctor")
 public class DoctorEntity implements Serializable {
 
+    // Id del doctor
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
+    
+    // Primer nombre
     @Size(max = 50)
     @Column(name = "first_name")
     private String firstName;
+    
+    // Segundo nombre
     @Size(max = 50)
     @Column(name = "middle_name")
     private String middleName;
+    
+    // Primer apellido
     @Size(max = 50)
     @Column(name = "last_name")
     private String lastName;
+    
+    // Apellido materno
     @Size(max = 50)
     @Column(name = "maiden_name")
     private String maidenName;
+    
+    // Dirección principal
     @Size(max = 50)
     @Column(name = "address1")
     private String address1;
+    
+    // Dirección secundaria
     @Size(max = 50)
     @Column(name = "address2")
     private String address2;
+    
+    // Género (M o F)
     @Column(name = "gender")
     private Character gender;
+    
+    // Fecha de nacimiento
     @Column(name = "birthdate")
     @Temporal(TemporalType.DATE)
     private Date birthdate;
+    
+    // Número de colegiado
     @Size(max = 50)
     @Column(name = "collegiate_number")
     private String collegiateNumber;
+    
+    // ¿Es colegiado activo?
     @Column(name = "is_active")
     private Boolean isActive;
 
