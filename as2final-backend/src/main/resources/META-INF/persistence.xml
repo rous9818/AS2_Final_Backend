@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="gt.edu.umg_as2p2_war_0.0.1-SNAPSHOTPU" transaction-type="JTA">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>gt.edu.umg.as2final.model.ConsultationEntity</class>
+    <class>gt.edu.umg.as2final.model.DoctorEntity</class>
+    <class>gt.edu.umg.as2final.model.PatientEntity</class>
+    <class>gt.edu.umg.as2final.model.DiseaseEntity</class>
+    <class>gt.edu.umg.as2final.model.DoctorSpecializationEntity</class>
+    <class>gt.edu.umg.as2final.model.MedicineEntity</class>
+    <class>gt.edu.umg.as2final.model.MedicineForDiseaseEntity</class>
+    <class>gt.edu.umg.as2final.model.PrescriptionEntity</class>
+    <class>gt.edu.umg.as2final.model.SpecializationEntity</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://mysql-15100-0.cloudclusters.net:15104/AS2FinalV2"/>
+      <property name="javax.persistence.jdbc.user" value="admin22"/>
+      <property name="javax.persistence.jdbc.driver" value="org.gjt.mm.mysql.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="analisisfinal"/>
+    </properties>
+  </persistence-unit>
+</persistence>
