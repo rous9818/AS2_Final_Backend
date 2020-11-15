@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * Servicio PatientEntityService
- Permite implementar todas las operaciones del CRUD para la entidad PatientEntity
+ * Permite implementar todas las operaciones del CRUD para la entidad PatientEntity
  * @author AK272DT
  */
 @Service

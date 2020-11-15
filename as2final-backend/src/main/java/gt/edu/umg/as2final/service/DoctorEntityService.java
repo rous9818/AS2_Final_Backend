@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 /**
- * Controlador DoctorEntityService
- Permite implementar todas las operaciones del CRUD para la entidad DoctorEntity
+ * Servicio DoctorEntityService
+ * Permite implementar todas las operaciones del CRUD para la entidad DoctorEntity
  * @author AK272DT
  */
 @Service
