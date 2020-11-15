@@ -40,7 +40,7 @@ public class PatientServiceUnitTesting {
     }
     
     @Test
-    public void testGetAllPatients() {
+    public void whenExecute_thenGetAllPatients() {
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<String>(null, headers);
         
@@ -51,14 +51,14 @@ public class PatientServiceUnitTesting {
     }
     
     @Test
-    public void testGetPatientById() {
+    public void whenGiveId_getPatientDetails() {
         PatientEntity patient = restTemplate.getForObject(getRootUrl() + "/api/v1/patients/1", PatientEntity.class);
         System.out.println(patient.getFirstName());
         Assert.assertNotNull(patient);
     }
     
     @Test
-    public void testCreatePatient() {
+    public void whenCreatePatient_thenReturnNewPatient() {
         PatientEntity patient = new PatientEntity();
         patient.setFirstName("Juan");
         patient.setMiddleName("Carlos");
@@ -77,7 +77,7 @@ public class PatientServiceUnitTesting {
     }
     
     @Test
-    public void testUpdatePatient() {
+    public void whenUpdatePatient_thenReturnUpdatedPatient() {
         int id = 1;
 	PatientEntity patient = restTemplate.getForObject(getRootUrl() + "/api/v1/patients/" + id, PatientEntity.class);
 	patient.setFirstName("Ovando");
@@ -90,7 +90,7 @@ public class PatientServiceUnitTesting {
     }
     
     @Test
-    public void testDeletePatient() {
+    public void whenDeletePatient_thenReturnTrue() {
         int id = 2;
 	PatientEntity patient = restTemplate.getForObject(getRootUrl() + "/api/v1/patients/" + id, PatientEntity.class);
 	Assert.assertNotNull(patient);
