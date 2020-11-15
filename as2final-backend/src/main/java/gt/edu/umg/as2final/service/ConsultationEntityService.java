@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 /**
- * Controlador ConsultationEntityService
- Permite implementar todas las operaciones del CRUD para la entidad ConsultationEntity
+ * Servicio ConsultationEntityService
+ * Permite implementar todas las operaciones del CRUD para la entidad ConsultationEntity
  * @author AK272DT
  */
 @Service
@@ -52,7 +52,7 @@ public class ConsultationEntityService {
     }
     
     /**
-     * Crea una nueva consulta en la base de datos.
+     * Crea una nueva consulta médica en la base de datos.
      * 
      * @param consultation La consulta
      * @return La consulta creada
