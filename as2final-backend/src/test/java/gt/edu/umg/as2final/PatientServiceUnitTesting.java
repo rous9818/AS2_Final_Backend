@@ -1,4 +1,4 @@
-package gt.edu.umg.as2p2;
+package gt.edu.umg.as2final;
 
 import gt.edu.umg.as2final.As2p2Application;
 import gt.edu.umg.as2final.model.PatientEntity;
