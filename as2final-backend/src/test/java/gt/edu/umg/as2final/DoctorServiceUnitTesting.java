@@ -56,7 +56,7 @@ public class DoctorServiceUnitTesting {
 
     @Test
     public void whenGiveId_getDoctorDetails() {
-        DoctorEntity doctor = restTemplate.getForObject(getRootUrl() + "/api/v1/doctors", DoctorEntity.class);
+        DoctorEntity doctor = restTemplate.getForObject(getRootUrl() + "/api/v1/doctors/1", DoctorEntity.class);
         System.out.println(doctor.getFirstName());
         Assert.assertNotNull(doctor);
     }
@@ -94,7 +94,7 @@ public class DoctorServiceUnitTesting {
 
     @Test
     public void whenDeleteDoctor_thenReturnTrue() {
-        int id = 2;
+        int id = 4;
 	DoctorEntity doctor = restTemplate.getForObject(getRootUrl() + "/api/v1/doctors/4" + id, DoctorEntity.class);
 	Assert.assertNotNull(doctor);
 

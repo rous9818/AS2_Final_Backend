@@ -12,6 +12,8 @@
     <artifactId>as2final-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <!--<packaging>war</packaging>-->
+ 
     <name>as2final-backend</name>
     <description>Examen Parcial II - AS2</description>
 

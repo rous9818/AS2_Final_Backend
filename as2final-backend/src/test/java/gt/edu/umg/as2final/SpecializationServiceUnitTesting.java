@@ -71,26 +71,26 @@ public class SpecializationServiceUnitTesting {
     @Test
     public void whenUpdateSpecialization_thenReturnUpdatedSpecialization() {
         int id = 1;
-	SpecializationEntity specialization = restTemplate.getForObject(getRootUrl() + "/api/v1/specializations/" + id, SpecializationEntity.class);
+	SpecializationEntity specialization = restTemplate.getForObject(getRootUrl() + "/api/v1/specializations/2" + id, SpecializationEntity.class);
 	specialization.setSpecializationName("Cirujía Cardiovascular");
 	specialization.setDescription("Sistema Circulatorio");
 
-	restTemplate.put(getRootUrl() + "/api/v1/specializations/" + id, specialization);
+	restTemplate.put(getRootUrl() + "/api/v1/specializations/2" + id, specialization);
 
-	SpecializationEntity updatedSpecialization = restTemplate.getForObject(getRootUrl() + "/api/v1/specializations/" + id, SpecializationEntity.class);
+	SpecializationEntity updatedSpecialization = restTemplate.getForObject(getRootUrl() + "/api/v1/specializations/2" + id, SpecializationEntity.class);
 	Assert.assertNotNull(updatedSpecialization);
     }
 
     @Test
     public void whenDeleteSpecialization_thenReturnTrue() {
         int id = 2;
-	SpecializationEntity specialization = restTemplate.getForObject(getRootUrl() + "/api/v1/specializations/" + id, SpecializationEntity.class);
+	SpecializationEntity specialization = restTemplate.getForObject(getRootUrl() + "/api/v1/specializations/2" + id, SpecializationEntity.class);
 	Assert.assertNotNull(specialization);
 
 	restTemplate.delete(getRootUrl() + "/api/v1/specializations/" + id);
 
 	try {
-            specialization = restTemplate.getForObject(getRootUrl() + "/api/v1/specializations/" + id, SpecializationEntity.class);
+            specialization = restTemplate.getForObject(getRootUrl() + "/api/v1/specializations/2" + id, SpecializationEntity.class);
 	} catch (final HttpClientErrorException e) {
             Assert.assertEquals(e.getStatusCode(), HttpStatus.NOT_FOUND);
 	}
