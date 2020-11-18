@@ -15,7 +15,7 @@ Los registros pueden incluir signos vitales, historia médica, diagnósticos, pr
 
 ## Desarrolladores:
 
--Ing.Jose Barillas/Product Owner
--Colaborador David Guzman/Project Manager y Desarrollador
--Colaboradora Rosangela/Analista y Diseñadora
--Colaborador Abel/Diseñador y Programador
+- Ing.Jose Barillas/Product Owner
+- Colaborador David Guzman/Project Manager y Desarrollador
+- Colaboradora Rosangela/Analista y Diseñadora
+- Colaborador Abel/Diseñador y Programador
