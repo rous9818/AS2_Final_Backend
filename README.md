@@ -7,8 +7,9 @@ El propósito como analistas y desarrolladores es crear un sistema que almacena 
 Los registros pueden incluir signos vitales, historia médica, diagnósticos, prescripciones,consultas y medicamentos de los pacientes.
 
 ## Tecnologías
-*Fronted:HTML,Bootstrap,React JS
-*Bacckend: Java Spring Boot,JPA
+
+* Fronted:HTML,Bootstrap,React JS
+* Bacckend: Java Spring Boot,JPA
 
 
 
